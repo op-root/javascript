@@ -1,0 +1,35 @@
+<html>
+<head>
+	<script src="//www.oproot.com/js/jquery-1.8.0.min.js"></script>
+</head>
+<body>	
+<table><tr><td><font color="black" size='2' face='Helvetica'>
+	In a basic photo gallery, clicking a thumbnail changes the main image and text.
+	<br>Example: www.oproot.com/if/jquery-photo.html
+	<br><br>
+	<div id="gallery">
+		<div id="panel">
+			<b><div id="description">Orange Moon</div></b>
+			<img id="largeImage" src="//www.oproot.com/img/09192008orange_red_moon_large.jpg" />
+			<br><br>
+			<div id="thumbs">
+				<img src="//www.oproot.com/img/09192008orange_red_moon_thumb.jpg" alt="Orange Moon" />
+				<img src="//www.oproot.com/img/moon_landmarks_thumb.jpg" alt="Landmarks" />
+				<img src="//www.oproot.com/img/moon_thumb.jpg" alt="Moon" />
+			</div>
+		</div>
+	</div>
+	<br>
+	<script>
+	$('#thumbs img').click(function(){
+		$('#largeImage').attr('src',$(this).attr('src').replace('thumb','large'));
+		$('#description').html($(this).attr('alt'));
+	});
+	$('#thumbs').delegate('img','click', function(){
+		$('#largeImage').attr('src',$(this).attr('src').replace('thumb','large'));
+		$('#description').html($(this).attr('alt'));
+	});
+	</script>
+</td></tr></table>
+</body>
+</html>
